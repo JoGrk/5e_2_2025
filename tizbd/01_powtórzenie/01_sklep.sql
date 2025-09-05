@@ -112,16 +112,50 @@ SELECT *
 FROM produkty
     JOIN producenci ON produkty.producent=producenci.kod;
 -- 11. Wyświetl nazwę produktu, cenę i nazwę producenta dla wszystkich produktów 
+SELECT produkty.nazwa, cena, producenci.nazwa
+FROM produkty
+    JOIN producenci ON produkty.producent=producenci.kod; 
 
 -- 12. Wyświetl średnią cenę produktów każdego producenta, pokazując tylko kod producenta
-
+SELECT AVG(cena),producent
+FROM produkty
+GROUP BY producent;
 -- 13. Wyświetl średnią cenę produktów każdego producenta, pokazując nazwę producenta 
+SELECT AVG(cena), producenci.nazwa
+FROM produkty
+JOIN producenci ON producenci.kod=produkty.producent
+GROUP BY producent;
 
 -- 14. Wyświetl nazwę każdego producenta, którego produkty mają średnią cenę większą lub równą $150
-
+SELECT AVG(cena), producenci.nazwa
+FROM produkty
+JOIN producenci ON producenci.kod=produkty.producent
+GROUP BY producent
+HAving AVG(cena) >=150;
 -- 15. Wyświetl nazwę i cenę najtańszego produktu  (LIMIT lub podzapytanie)
+SELECT nazwa, cena
+FROM produkty
+ORDER BY cena ASC
+LIMIT 1;
+INSERT INTO produkty 
+(nazwa,cena,producent)
+VALUES
+('ram',5,2);
 
+SELECT MIN(cena)
+FROM produkty;
+
+SELECT nazwa,cena
+FROM produkty
+WHERE cena = (SELECT MIN(cena)
+FROM produkty);
 -- 16.Wyświetl nazwę każdego producenta razem z nazwą i ceną jego najdroższego produktu 
+SELECT produkty.nazwa, cena, producenci.nazwa, produkty.producent
+FROM produkty 
+JOIN producenci ON produkty.producent=producenci.kod 
+WHERE cena = (SELECT MAX(cena)
+            FROM produkty p
+            WHERE p.producent = produkty.producent);
 
 -- 17. Dodaj nowy produkt:  Loudspeakers, $70, producent 2.
 

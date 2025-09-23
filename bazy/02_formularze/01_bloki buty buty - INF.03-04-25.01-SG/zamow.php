@@ -1,19 +1,23 @@
 <?php
 
-$link = new mysqli('localhost', 'root', '', '5r_2_obuwie');
+$link = new mysqli('localhost', 'root', '', '5e_2_obuwie');
 
 $f_model = $_POST['f_model']?? NULL;
-if($f_model){
+$f_size = $_POST['f_size']?? NULL;
+$f_quantity = $_POST['f_quantity']?? NULL;
+
+if($f_model && $f_size && $f_quantity){
 
     $sql = "SELECT nazwa,cena,kolor,kod_produktu,material,nazwa_pliku
-FROM buty
-        JOIN produkt ON buty.model=produkt.model
-WHERE buty.model = '$f_model';";
-$result = $link -> query($sql);
-$products = $result -> fetch_all(1);
+        FROM buty
+            JOIN produkt ON buty.model=produkt.model
+        WHERE buty.model = '$f_model';";
+    $result = $link -> query($sql);
+    $product = $result -> fetch_array();
+
 } 
 
-    
+   
 ?>
 <!DOCTYPE html>
 <html lang="pl">
@@ -37,16 +41,18 @@ $products = $result -> fetch_all(1);
          <p>Szczegóły produktu: KOLOR, MATERIAL</p>
          <p>Rozmiar: ROZMIAR</p> -->
          <?php
-            foreach($products as $product){
+          if($f_model && $f_size && $f_quantity){
+            
+                 $price=$f_quantity*$product['cena'];
                 echo
                 "
-                <img src='{$product['nazwa_pliku']} alt='but męski'>
+                <img src='{$product['nazwa_pliku']}' alt='but męski'>
                 <h2>{$product['nazwa']}</h2>
-                <p>cena za  par: zł</p>
+                <p>cena za $f_quantity par:$price zł</p>
                 <p>Szczegóły produktu: {$product['kolor']}, {$product['material']}</p>
-                <p>Rozmiar: {$product['rozmiar']}</p>
+                <p>Rozmiar:$f_size</p>
                 ";
-            }
+          } 
          ?>
          <a href="index.php">strona glowna</a>
     </main>

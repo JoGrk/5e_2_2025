@@ -1,5 +1,5 @@
 <?php
-$link = new mysqli('localhost', 'root', '', '5r_2_obuwie');
+$link = new mysqli('localhost', 'root', '', '5e_2_obuwie');
 $sql="SELECT model
 FROM produkt;";
 $result=$link->query($sql);

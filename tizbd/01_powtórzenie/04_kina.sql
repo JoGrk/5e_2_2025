@@ -89,7 +89,19 @@ select *
 from kina
     right join filmy on kina.film=filmy.kod;
 -- 9. Dodaj film  "One, Two, Three" (bez ratingu)
- 
+ insert into filmy(tytul)
+ VALUES
+ ('one,two,three');
 -- 10. Ustal rating wszystkich filmów bez ratingu na  "G".
-
+update filmy
+set rating = "G"
+WHERE rating is null;
 -- 11. usuń kina wyświetlające filmy z ratingiem "NC-17".
+
+DELETE kina
+FROM kina
+    JOIN filmy ON kina.film = filmy.kod
+WHERE rating = "NC-17";
+
+
+     

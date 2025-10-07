@@ -14,5 +14,37 @@ header{
     height: 300px;
     padding: 10px;
     margin: 10px 50px;
+    border: 1px crimson solid;
     
+}
+.first img{
+    float: left;
+    height: 100%;
+}
+.offer {
+    background-color: Snow;
+    height: 450px;
+    width: 21%;
+    margin: 1%;
+    text-align: center;
+    border: 1px Crimson solid;
+}
+footer{
+    background-color: crimson;
+    color:white;
+}
+img{
+    max-width: 100%;
+}
+h4 {
+    font-size: 180%;
+    text-align: center;
+    color: crimson;
+}
+a{
+    color: white;
+}
+.flex{
+    display: flex;
+    flex-wrap: wrap;
 }

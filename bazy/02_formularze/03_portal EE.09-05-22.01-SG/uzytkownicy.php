@@ -1,5 +1,11 @@
 
-
+<?php
+$link = new mysqli ('localhost','root','','5e_1_portal');
+$sql = "SELECT COUNT(*) AS ilosc
+FROM dane;";
+$result = $link -> query($sql);
+$quantity = $result -> fetch_array();
+?>
 
 
 
@@ -19,7 +25,10 @@
 
         <section class="banner-right">
             <!-- skrypt1 -->
-       
+       <?php
+       echo "<h5>liczba uzytkownikow portalu:{$quantity['ilosc']}</h5>";
+       ?>
+
 
 
         </section>

@@ -50,7 +50,58 @@ $quantity = $result -> fetch_array();
             <h3>Wizytówka</h3>
             <section class="profile">
                 <!-- skrypt 2 -->
-               
+               <?php
+                    if(!empty($_POST['login'])&& !empty($_POST['password'])){
+                        $login = $_POST['login'];
+                        $password = $_POST['password'];
+                        $sql="SELECT haslo
+                            FROM uzytkownicy
+                            WHERE login = '$login';";
+
+                        $result=$link->query($sql);
+                        // $cypher=$result->fetch_array();
+                         
+
+                        if($result -> num_rows < 1){
+                            echo "login nie istnieje";
+                    
+                        }
+                        else {
+                              $cypher=$result->fetch_array();
+                              $cypher=$cypher['haslo'];
+                            //  var_dump ($cypher);
+                             $password = sha1($password);
+                            //  var_dump ($password);
+                            
+                            if($password == $cypher){
+                                // Jest login hasło się zgadza
+                                $sql = "SELECT login, rok_urodz, przyjaciol, hobby, zdjecie
+                                FROM uzytkownicy
+                                JOIN dane ON dane.id = uzytkownicy.id
+                                WHERE login = '$login'";
+                                $result = $link ->query($sql);
+                                $profil = $result -> fetch_array();
+                                $age = date("Y")-$profil['rok_urodz'];
+                                echo "
+                                <img src='{$profil['zdjecie']}' alt='osoba'>
+                                <h4>{$profil['login']}($age)</h4>
+                                <p>hobby: {$profil['hobby']}</p>
+                                <h1><img src='icon-on.png' alt='serce'>{$profil['przyjaciol']}</h1>
+                                <a href='dane.html'><button>Więcej informacji</button></a>                                
+                                ";
+                                
+                            }
+                        }
+
+
+                    }
+               ?>
+               <!-- <img src="o1.jpg" alt="osoba">
+               <h4>[login](wiek)</h4>
+               <p>hobby: [hobby]</p>
+               <h1><img src="icon-on.png" alt="serce">[przyjaciol]</h1>
+               <a href="dane.html"><button>Więcej informacji</button></a> -->
+
             </section>
         </section>
     </main>

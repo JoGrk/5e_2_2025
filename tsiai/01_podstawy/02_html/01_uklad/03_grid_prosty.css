@@ -1,0 +1,22 @@
+body{
+    display: grid;
+    grid-template-columns: 40% 60%;
+    grid-template-areas: 
+            'nav main'
+            'ft   ft';
+}
+nav{
+    background-color: aqua;
+    height: 500px;
+    grid-area: nav;
+}
+main{
+    background-color: azure;
+    height: 500px;
+    grid-area: main;
+}
+footer{
+    background-color: blue;
+    height: 200px;
+    grid-area: ft;
+}

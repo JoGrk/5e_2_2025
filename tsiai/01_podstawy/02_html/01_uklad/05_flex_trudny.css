@@ -1,0 +1,26 @@
+.kontener{
+    display: flex;
+
+}
+
+.left{
+    width: 40%;
+
+}
+nav{
+    background-color: lightblue;
+    height: 300px;
+}
+aside{
+    background-color: grey;
+    height: 200px;
+}
+main{
+    background-color: rgb(75, 119, 134);
+    width: 60%;
+    height: 500px;
+}
+footer{
+    background-color: navajowhite;
+    height: 150px;
+}

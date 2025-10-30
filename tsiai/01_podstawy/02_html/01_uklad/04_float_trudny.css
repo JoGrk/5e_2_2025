@@ -1,0 +1,26 @@
+nav{
+    background-color: antiquewhite;
+    width: 40%;
+    height: 300px;
+    float: left;
+}
+
+aside{
+    background-color: brown;
+    width: 40%;
+    height: 200px;
+    float: left;
+}
+
+main{
+    background-color: blanchedalmond;
+    width: 60%;
+    height: 500px;
+    float: right;
+}
+
+footer{
+    background-color: beige;
+    height: 150px;
+    clear: both;
+}

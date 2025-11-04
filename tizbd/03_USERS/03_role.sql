@@ -18,7 +18,7 @@ SET password FOR 'u1' = password('1234');
 CREATE ROLE 'r1';
 GRANT SELECT ON 5e_2_komis.* TO 'r1'; 
 -- 9. Użytkownikowi u1 przypisz prawo do roli r1
-GRANT 'r1' TO 'u1';
+
 -- 10. zaloguj się jako u1 i sprawdź uprawniania (show grants)
 
 --        11. Sprawdź, czy możesz wyświetlić dane z tabeli zamowienia

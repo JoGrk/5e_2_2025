@@ -1,3 +1,31 @@
+<?php
+$link = new mysqli('localhost', 'root', '', '5e_2_przewozy');
+
+$f_task = $_POST['f_task'] ?? NULL;
+$f_date = $_POST['f_date'] ?? NULL;
+
+if($f_task && $f_date){
+    $sql="INSERT INTO zadania
+            (zadanie,data,osoba_id)
+            Values
+            ('$f_task','$f_date',1);";
+    $result=$link->query($sql);
+}
+
+$id_task = $_GET['id_task'] ?? NULL;
+
+if($id_task){
+    $sql= "DELETE 
+            FROM zadania
+            WHERE id_zadania = $id_task;";
+    $result = $link -> query($sql); 
+}
+
+
+$sql = "SELECT id_zadania,zadanie,data FROM zadania";
+$result = $link -> query($sql);
+$tasks = $result -> fetch_all(1);
+?>
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -29,7 +57,24 @@
                     <th>Akcja</th>
                 </tr>
                 <!-- s1 -->
+                <?php
+                    foreach ($tasks as $t){
+                        echo "
+                            <tr>
+                                <td>{$t['zadanie']}</td>
+                                <td>{$t['data']}</td>
+                                <td><a href='?id_task={$t['id_zadania']}'>Usuń</a></td>
+                            </tr>";
+                    }          
+                ?>
+<!-- 
+                 <tr>
+                    <td>[zadanie]</td>
+                    <td>[data]</td>
+                    <td><a href='?id_task=[id_zadania]'>Usuń</a></td>
+                 </tr> -->
                 <!-- s2 -->
+
             </table>
 
             <form action="" method="post">
@@ -60,3 +105,6 @@
     </footer>
 </body>
 </html>
+<?php
+$link -> close();
+?>

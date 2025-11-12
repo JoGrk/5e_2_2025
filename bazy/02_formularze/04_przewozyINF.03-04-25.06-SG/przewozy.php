@@ -43,7 +43,7 @@
         </section>
 
         <section class="right">
-            <img src="auto1.jpg" alt="auto firmowe">
+            <img src="auto.png" alt="auto firmowe">
             <h3>Nasza specjalnosc</h3>
             <ul>
                 <li>Przeprowadzki:</li>

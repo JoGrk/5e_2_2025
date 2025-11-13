@@ -26,14 +26,14 @@ nav{
     color:white;
     text-decoration: underline;
 }
-.left,.right{
+.left_m,.right_m{
     background-color: Azure;
     height: 550px;
 }
-.left{
+.left_m{
     width:70%;
 }
-.right{
+.right_m{
     width:30%;
 }
 footer{
@@ -48,6 +48,6 @@ table{
 tr:hover{
     background-color: skyblue;
 }
-.right img{
+.right_m img{
     width: 90%;
 }

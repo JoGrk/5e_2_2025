@@ -1,0 +1,51 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
+body{
+    background-color: lightsalmon;
+    text-align: center;
+}
+.left-top{
+    width: 30%;
+    height: 400px;
+    float: left;
+}
+.left-down{
+    background-color: darksalmon;
+    width: 30%;
+    height: 100px;
+}
+.right{
+    background-color: darksalmon;
+    width: 70%;
+    height: 500px;
+    float: left;
+    overflow: auto;
+}
+img{
+    width: 100%;
+}
+.prf{
+    font-style: italic;
+    font-size: 200%;
+    padding: 10px;
+}
+.prf:hover{
+    background-color: ghostwhite;
+}
+table,tr,td{
+    border: 1px dotted maroon;
+    
+}
+table{
+    width: 70%;
+    margin: auto;
+}
+
+footer{
+    clear: both;
+}
+
+
+
+

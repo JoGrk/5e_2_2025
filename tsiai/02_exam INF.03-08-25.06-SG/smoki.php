@@ -25,6 +25,7 @@ $origins = $result -> fetch_all(1);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Smoki</title>
     <link rel="stylesheet" href="styl.css">
+    <script src="main.js" defer></script>
 </head>
 <body>
     <header>
@@ -76,9 +77,9 @@ $origins = $result -> fetch_all(1);
                         foreach($dragons as $dragon){
                             echo"
                             <tr>
-                                <td>{$dragons['nazwa']}</td>
-                                <td>{$dragons['dlugosc']}</td>
-                                <td>{$dragons['szerokosc']}</td>
+                                <td>{$dragon['nazwa']}</td>
+                                <td>{$dragon['dlugosc']}</td>
+                                <td>{$dragon['szerokosc']}</td>
                             </tr>
                             ";
                         }

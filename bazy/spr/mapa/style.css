@@ -1,0 +1,52 @@
+*{
+    font-family: Helvetica, sans-serif;
+}
+
+body{
+    background-color: lightsalmon;
+    text-align: center;
+}
+
+
+.left{
+    width: 30%;
+    height: 400px;
+    float: left;
+}
+
+.left_d{
+    background-color: darksalmon;
+    width: 30%;
+    height: 100px;
+    float: left;
+  
+}
+
+.right{
+    background-color: darksalmon;
+    width: 70%;
+    height: 500px;
+    overflow: hidden;
+    float: right;
+}
+
+img{
+    width: 100%;
+}
+
+._t{
+    font-size: 200%;
+    padding: 10px;
+}
+
+._t:hover{
+    color: ghostwhite;
+}
+
+table, tr, td{
+    border: dotted 1px maroon;
+    border-collapse: collapse;
+    width: 70%;
+    margin: auto;
+}
+
